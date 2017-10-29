@@ -64,6 +64,6 @@ C:\wamp\www\Git\c#\cmrhao\cmrhao\bin\Microsoft.Owin.Security.OAuth.xml
 C:\wamp\www\Git\c#\cmrhao\cmrhao\bin\Microsoft.Owin.Security.Google.xml
 C:\wamp\www\Git\c#\cmrhao\cmrhao\bin\Microsoft.Owin.Security.Twitter.xml
 C:\wamp\www\Git\c#\cmrhao\cmrhao\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\wamp\www\Git\c#\cmrhao\cmrhao\obj\Debug\cmrhao.csprojResolveAssemblyReference.cache
 C:\wamp\www\Git\c#\cmrhao\cmrhao\obj\Debug\cmrhao.dll
 C:\wamp\www\Git\c#\cmrhao\cmrhao\obj\Debug\cmrhao.pdb
+C:\wamp\www\Git\c#\cmrhao\cmrhao\obj\Debug\cmrhao.csprojResolveAssemblyReference.cache

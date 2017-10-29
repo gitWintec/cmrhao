@@ -1,0 +1,58 @@
+﻿@model cmrhao.Models.User
+
+@{
+    ViewBag.Title = "Member Log in";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <h2><i class="fa fa-lock"></i> @ViewBag.Title.</h2>
+            <hr/>
+        </div>
+     </div>
+
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Authorize", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                        @Html.AntiForgeryToken()
+                        
+                   
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <label class="text-warning">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+                            </div>
+                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserPass, new { @class = "col-md-4 control-label" })
+                            <div class="col-md-8">
+                                @Html.PasswordFor(m => m.UserPass, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserPass, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-8">
+                                <input type="submit" value="Log in" class="btn btn-default" />
+                            </div>
+                        </div>
+
+                    }
+                </section>
+            </div>
+
+        </div>
+</div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
