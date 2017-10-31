@@ -182,6 +182,30 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminAccounts.cs" />
+    <Compile Include="Models\Announcement.cs">
+      <DependentUpon>GroupsDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Group.cs">
+      <DependentUpon>GroupsDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupsDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupsDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupsDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupsDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupsDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupsDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GroupUser.cs">
+      <DependentUpon>GroupsDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginDataModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -200,7 +224,7 @@
     </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\User.cs">
-      <DependentUpon>LoginDataModel.tt</DependentUpon>
+      <DependentUpon>GroupsDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -272,8 +296,25 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LoginDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="Models\GroupsDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GroupsDataModel.edmx</DependentUpon>
+      <LastGenOutput>GroupsDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GroupsDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GroupsDataModel.edmx</DependentUpon>
+      <LastGenOutput>GroupsDataModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\LoginDataModel.edmx.diagram">
       <DependentUpon>LoginDataModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\GroupsDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GroupsDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GroupsDataModel.edmx.diagram">
+      <DependentUpon>GroupsDataModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Models\LoginDataModel.Context.tt">

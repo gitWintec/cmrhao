@@ -12,20 +12,16 @@ namespace cmrhao.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Group
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Group()
         {
             this.GroupUsers = new HashSet<GroupUser>();
         }
     
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        public string UserFullName { get; set; }
-        public string UserPass { get; set; }
-        public string UserRole { get; set; }
-        public string UserTheme { get; set; }
+        public int GroupId { get; set; }
+        public string GroupName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupUser> GroupUsers { get; set; }
