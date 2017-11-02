@@ -3,8 +3,129 @@
     ViewBag.Title = "Index";
     
 }
-<div class="container">
-    <div class="row">
-        <h2>This is Student  DashBaord</h2>
-    </div>
-</div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>All about HTML</title>
+    <style>
+        body {
+            text-align: center;
+            background: url("https://cdn.eyeem.com/thumb/d8b3e3ca82291403d34e9aad61bb295b88d3bdad-1494801829041/w/1280");
+            color: white;
+            font-family: Helvetica;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        input {
+            border: 0;
+            padding: 12px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body style="text-align:center; width:100%;">
+   
+    <h1>STUDENT DASHBOARD</h1>
+
+    <table style="height: 254px; width: 100%; align-content:center;">
+        <tr>
+            <td align="center" class="auto-style3">
+                <img src="https://energymeet.files.wordpress.com/2013/03/idea.jpg" style="height: 81px; width: 179px" />
+
+                <br />
+
+
+                <div id="container">
+                    <header role="banner">
+                        <h1>
+                          @Html.ActionLink("Module I", "Module1", "Student")
+                        </h1>
+
+                    </header>
+                    <nav>
+                        <ul>
+                            <!-- nav items -->
+                        </ul>
+                    </nav>
+                    <div id="module 1" class="Module1">
+
+                    </div>
+                </div>
+            </td>
+
+            <td align="center" class="auto-style3">
+                <img src="https://energymeet.files.wordpress.com/2013/03/idea.jpg" style="height: 81px; width: 179px" />
+
+
+                <div id="container">
+                    <header role="banner">
+                        <h1>
+                            @Html.ActionLink("Module II", "Module2", "Student")
+                        </h1>
+                    </header>
+                    <nav>
+                        <ul>
+                            <!-- nav items -->
+                        </ul>
+                    </nav>
+                    <div id="module 2" class="module22">
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" class="auto-style4">
+                <img src="https://energymeet.files.wordpress.com/2013/03/idea.jpg" style="height: 81px; width: 179px" />
+
+                <div id="container">
+                    <header role="banner">
+                        <h1>
+                            @Html.ActionLink("Module III", "Module3", "Student")
+                        </h1>
+                    </header>
+                    <nav>
+                        <ul>
+                            <!-- nav items -->
+                        </ul>
+                    </nav>
+                    <div id="module 3" class="module 3">
+
+                    </div>
+                </div>
+            </td>
+
+            <td align="center" class="auto-style4">
+                <img src="https://energymeet.files.wordpress.com/2013/03/idea.jpg" style="height: 81px; width: 179px" />
+
+                <div id="container">
+                    <header role="banner">
+                        <h1>
+                            <a href="/">Quiz</a>
+
+                        </h1>
+                    </header>
+                    <nav>
+                        <ul>
+                            <!-- nav items -->
+                        </ul>
+                    </nav>
+
+                    <div id="Questionaire" class="Questionaire">
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
+

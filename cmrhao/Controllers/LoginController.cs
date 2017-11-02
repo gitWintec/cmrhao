@@ -19,7 +19,7 @@ namespace cmrhao.Controllers
         [HttpPost]
         public ActionResult Authorize(cmrhao.Models.User userModel)
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 var userDetails = db.Users.Where(x => x.UserName == userModel.UserName && x.UserPass == userModel.UserPass).FirstOrDefault();
                 if (userDetails == null)

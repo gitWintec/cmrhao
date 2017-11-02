@@ -13,11 +13,12 @@ namespace cmrhao.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class DbConnect : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public DbConnect()
+            : base("name=DbConnect")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -25,9 +26,10 @@ namespace cmrhao.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Announcement> Announcements { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<GroupUser> GroupUsers { get; set; }
+        public virtual DbSet<Score> Scores { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Announcement> Announcements { get; set; }
     }
 }

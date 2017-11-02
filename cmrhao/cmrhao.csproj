@@ -183,48 +183,36 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminAccounts.cs" />
     <Compile Include="Models\Announcement.cs">
-      <DependentUpon>GroupsDataModel.tt</DependentUpon>
+      <DependentUpon>ModelDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Group.cs">
-      <DependentUpon>GroupsDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GroupsDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GroupsDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GroupsDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GroupsDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GroupsDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GroupsDataModel.edmx</DependentUpon>
+      <DependentUpon>ModelDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GroupUser.cs">
-      <DependentUpon>GroupsDataModel.tt</DependentUpon>
+      <DependentUpon>ModelDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\LoginDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LoginDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LoginDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LoginDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\LoginDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LoginDataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ModelDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Score.cs">
+      <DependentUpon>ModelDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>GroupsDataModel.tt</DependentUpon>
+      <DependentUpon>ModelDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -292,40 +280,23 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Models\LoginDataModel.edmx">
+    <EntityDeploy Include="Models\ModelDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LoginDataModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\GroupsDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GroupsDataModel.edmx</DependentUpon>
-      <LastGenOutput>GroupsDataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\GroupsDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GroupsDataModel.edmx</DependentUpon>
-      <LastGenOutput>GroupsDataModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\LoginDataModel.edmx.diagram">
-      <DependentUpon>LoginDataModel.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\GroupsDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GroupsDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\GroupsDataModel.edmx.diagram">
-      <DependentUpon>GroupsDataModel.edmx</DependentUpon>
+    <Content Include="Models\ModelDb.edmx.diagram">
+      <DependentUpon>ModelDb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
-    <Content Include="Models\LoginDataModel.Context.tt">
+    <Content Include="Models\ModelDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LoginDataModel.edmx</DependentUpon>
-      <LastGenOutput>LoginDataModel.Context.cs</LastGenOutput>
+      <DependentUpon>ModelDb.edmx</DependentUpon>
+      <LastGenOutput>ModelDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\LoginDataModel.tt">
+    <Content Include="Models\ModelDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LoginDataModel.edmx</DependentUpon>
-      <LastGenOutput>LoginDataModel.cs</LastGenOutput>
+      <DependentUpon>ModelDb.edmx</DependentUpon>
+      <LastGenOutput>ModelDb.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -384,6 +355,9 @@
     <Content Include="Views\Shared\_AdminLayout .cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Instructor\Index.cshtml" />
+    <Content Include="Views\Student\Module1.cshtml" />
+    <Content Include="Views\Student\Module2.cshtml" />
+    <Content Include="Views\Student\Module3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

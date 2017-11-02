@@ -14,5 +14,27 @@ namespace cmrhao.Controllers
         {
             return View();
         }
+
+        
+        public ActionResult Module1()
+        {
+
+            return View("Module1");
+        }
+
+    
+        public ActionResult Module2()
+        {
+
+            return View("Module2");
+        }
+
+        
+        public ActionResult Module3()
+        {
+
+            return View("Module3");
+        }
+
     }
 }

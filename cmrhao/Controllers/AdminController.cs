@@ -11,6 +11,7 @@ namespace cmrhao.Controllers
     [CustomAuthFilterAdmin]
     public class AdminController : Controller
     {
+        private DbConnect db;
         // GET: Admin
         public ActionResult Index()
         {
@@ -20,7 +21,8 @@ namespace cmrhao.Controllers
 
         public ActionResult GetData()
         {
-            using (Entities db = new Entities())
+          
+            using ( db = new DbConnect())
             {
                 List<User> userList = db.Users.Where(x => x.UserRole!="Admin").ToList<User>();
                 return Json(new { data = userList }, JsonRequestBehavior.AllowGet);
@@ -35,7 +37,7 @@ namespace cmrhao.Controllers
                 return View(new User());
             else
             {
-                using (Entities db = new Entities())
+                using (DbConnect db = new DbConnect())
                 {
                     return View(db.Users.Where(x => x.UserId == id).FirstOrDefault<User>());
                 }
@@ -45,7 +47,7 @@ namespace cmrhao.Controllers
         [HttpPost]
         public ActionResult AddOrEdit(User usr)
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 if (usr.UserId == 0)
                 {
@@ -67,7 +69,7 @@ namespace cmrhao.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 User usr = db.Users.Where(x => x.UserId == id).FirstOrDefault<User>();
                 db.Users.Remove(usr);
@@ -79,7 +81,7 @@ namespace cmrhao.Controllers
 
         public ActionResult GetGroupData()
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 List<Group> GroupList = db.Groups.ToList<Group>();
                 return Json(new { data = GroupList }, JsonRequestBehavior.AllowGet);
@@ -94,7 +96,7 @@ namespace cmrhao.Controllers
                 return View(new Group());
             else
             {
-                using (Entities db = new Entities())
+                using (DbConnect db = new DbConnect())
                 {
                     return View(db.Groups.Where(x => x.GroupId == id).FirstOrDefault<Group>());
                 }
@@ -104,7 +106,7 @@ namespace cmrhao.Controllers
         [HttpPost]
         public ActionResult AddOrEditGroup(Group grp)
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 if (grp.GroupId == 0)
                 {
@@ -126,7 +128,7 @@ namespace cmrhao.Controllers
         [HttpPost]
         public ActionResult DeleteGroup(int id)
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 Group grp = db.Groups.Where(x => x.GroupId == id).FirstOrDefault<Group>();
                 db.Groups.Remove(grp);
@@ -138,7 +140,7 @@ namespace cmrhao.Controllers
 
         public ActionResult GetAncmntData()
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 List<Announcement> AncmntList = db.Announcements.ToList<Announcement>();
                 return Json(new { data = AncmntList }, JsonRequestBehavior.AllowGet);
@@ -153,7 +155,7 @@ namespace cmrhao.Controllers
                 return View(new Group());
             else
             {
-                using (Entities db = new Entities())
+                using (DbConnect db = new DbConnect())
                 {
                     return View(db.Announcements.Where(x => x.Id == id).FirstOrDefault<Announcement>());
                 }
@@ -163,7 +165,7 @@ namespace cmrhao.Controllers
         [HttpPost]
         public ActionResult AddOrEditAnsmnt(Announcement ancmnt)
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 if (ancmnt.Id == 0)
                 {
@@ -185,7 +187,7 @@ namespace cmrhao.Controllers
         [HttpPost]
         public ActionResult DeleteAnsmnt(int id)
         {
-            using (Entities db = new Entities())
+            using (DbConnect db = new DbConnect())
             {
                 Announcement ancmnt = db.Announcements.Where(x => x.Id == id).FirstOrDefault<Announcement>();
                 db.Announcements.Remove(ancmnt);
@@ -193,8 +195,6 @@ namespace cmrhao.Controllers
                 return Json(new { success = true, message = "Deleted Successfully" }, JsonRequestBehavior.AllowGet);
             }
         }
-
-
-
+        
     }
 }

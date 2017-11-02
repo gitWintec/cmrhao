@@ -11,23 +11,36 @@ namespace cmrhao.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
             this.GroupUsers = new HashSet<GroupUser>();
+            this.Scores = new HashSet<Score>();
         }
     
         public int UserId { get; set; }
+        [DisplayName("User Name")]
+        [Required(ErrorMessage = "This field is required.")]
         public string UserName { get; set; }
+        [DisplayName("Full Name")]
         public string UserFullName { get; set; }
+        [DisplayName("User Password")]
+        [Required(ErrorMessage = "This field is required.")]
         public string UserPass { get; set; }
+        [DisplayName("User Role")]
+        [Required(ErrorMessage = "This field is required.")]
         public string UserRole { get; set; }
         public string UserTheme { get; set; }
-    
+        public string LoginErrorMessage { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupUser> GroupUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Score> Scores { get; set; }
     }
 }

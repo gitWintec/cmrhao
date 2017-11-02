@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "Module3";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h1>Module II - Youtube & Plug-ins </h1>
+        <hr>
+        <h1>Youtube</h1>
+        <p>
+            You can add YouTube videos to your web site by using either the iframe or object HTML tags.
+        </p>
+
+        <p>
+            Use the youtube site to find the video you want
+            Click the 'Share' button below the video
+            Click the 'Embed' button next to the link they show you
+            Copy the iframe code given and paste it into the html of your web page.
+            Although YouTube gives you html code using the iframe tag, you can also include your video using the object tag, as seen in the example below.
+        </p>
+        <hr>
+
+        <h4>YouTube Autoplay</h4>
+        <p>
+            You can have your video start playing automatically when a user visits that page by adding a simple parameter to your YouTube URL.
+            Note: Take careful consideration when deciding to autoplay your videos. Automatically starting a video can annoy your visitor and end up causing more harm than good.
+            Value 0 (default): The video will not play automatically when the player loads.
+            Value 1: The video will play automatically when the player loads.
+        </p>
+        <hr>
+
+        <h4>YouTube Playlist</h4>
+        <p>
+            A comma separated list of videos to play (in addition to the original URL).
+        </p>
+        <hr>
+
+        <h4>YouTube Loop</h4>
+        <p>
+            Value 0 (default): The video will play only once.
+
+            Value 1: The video will loop (forever).
+        </p>
+        <hr>
+
+        <h4>YouTube Controls</h4>
+        <p>
+            Value 0: Player controls does not display.
+
+            Value 1 (default): Player controls display.
+        </p>
+        <hr>
+
+        <h4>YouTube - Using < object > or < embed ></h4>
+        <p>
+            Note: YouTube < object > and < embed > were deprecated from January 2015. You should migrate your videos to use < iframe > instead.
+        </p>
+        <hr>
+
+        <h1>Plug-ins</h1>
+        <p>
+            Plug-ins offer a rich variety of features that can increase the flexibility of Gecko-based browsers. Plug-ins like these are now available:
+        </p>
+        <p> *multimedia viewers such as Adobe Flash and Adobe Acrobat</p>
+        <p> *utilities that provide object embedding and compression/decompression services </p>
+        <p> *applications that range from personal information managers to games </p>
+
+        <p>The range of possibilities for using plug-in technology seems boundless, as shown by the growing numbers of independent software vendors who are creating new and innovative plug-ins.</p>
+
+            <p>With the Plug-in API, you can create dynamically loaded plug-ins that can:</p>
+
+        <p>*register one or more MIME types</p>
+        <p> *draw into a part of a browser window</p>
+        <p> *receive keyboard and mouse events</p>
+        <p> *obtain data from the network using URLs</p>
+        <p> *post data to URLs</p>
+        <p> *add hyperlinks or hotspots that link to new URLs</p>
+        <p> *draw into sections on an HTML page</p>
+        <p> *communicate with JavaScript/DOM from native code</p>
+            <p>You can see which plug-ins are installed on your system and have been properly associated with the browser by consulting the Installed Plug-ins page. Type "about:plugins" in the Location bar. The Installed Plug-ins page lists each installed plug-in along with its MIME type or types, description, file extensions, and the current state (enabled or disabled) of the plug-in for each MIME type assigned to it. Notice in view-source that this information is simply gathered from the JavaScript.</p>
+
+            <p>Because plug-ins are platform-specific, you must port them to every operating system and processor platform upon which you want to deploy your plug-in.</p>
+                <hr>
+
+        <h4>How it works</h4>
+        <p>The life cycle of a plug-in, unlike that of an application, is completely controlled by the web page that calls it. This section gives you an overview of the way that plug-ins operate in the browser.</p>
+
+        <p>When Gecko starts, it looks for plugin modules in particular places on the system. For more information about where Gecko looks for plugin modules on different systems, see How Gecko Finds Plug-ins.</p>
+
+        <p>When the user opens a page that contains embedded data of a media type that invokes a plug-in, the browser responds with the following sequence of actions:</p>
+
+        <p>*check for a plug-in with a matching MIME type</p>
+        <p>*load the plug-in code into memory</p>
+        <p>*initialize the plug-in</p>
+        <p>*create a new instance of the plug-in</p>
+<p>Gecko can load multiple instances of the same plug-in on a single page, or in several open windows at the same time. If you are browsing a page that has several embedded RealAudio clips, for example, the browser will create as many instances of the RealPlayer plug-in as are needed (though of course playing several RealAudio files at the same time would seldom be a good idea). When the user leaves the page or closes the window, the plug-in instance is deleted. When the last instance of a plug-in is deleted, the plug-in code is unloaded from memory. A plug-in consumes no resources other than disk space when it is not loaded. The next section, Understanding the Runtime Model, describes these stages in more detail.</p>
+        <hr>
+
+
+
+        <div class="container">
+            <div class="row">
+                <h1>HTML Video Tutorial</h1>
+                <p>The following video provides a tutorial: Multimedia, Audio, Video, Youtube</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/spoJ7Z8LzW8" gesture="media" allowfullscreen></iframe>
+            </div>
+        </div>
+        <hr>
+
+
+
+
+    </div>
+</div>
