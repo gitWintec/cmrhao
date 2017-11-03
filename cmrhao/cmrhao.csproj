@@ -358,6 +358,8 @@
     <Content Include="Views\Student\Module1.cshtml" />
     <Content Include="Views\Student\Module2.cshtml" />
     <Content Include="Views\Student\Module3.cshtml" />
+    <Content Include="Views\Student\MyAccount.cshtml" />
+    <Content Include="Views\Student\Quiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

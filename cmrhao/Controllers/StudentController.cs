@@ -36,5 +36,17 @@ namespace cmrhao.Controllers
             return View("Module3");
         }
 
+        public ActionResult Quiz()
+        {
+
+            return View("Quiz");
+        }
+
+        public ActionResult MyAccount()
+        {
+
+            return View("MyAccount");
+        }
+
     }
 }
