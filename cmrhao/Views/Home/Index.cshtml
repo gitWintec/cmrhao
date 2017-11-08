@@ -1,5 +1,11 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+   
+    String theme = "theme_default";
+    if (Session["userTheme"] != null && Session["userTheme"].ToString() != "")
+    {
+        theme = Session["userTheme"].ToString();
+    }
 }
 
 	<!-- Header -->
@@ -12,12 +18,12 @@
 
         <div class="fluid_container">
             <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
-                <div data-thumb="/Content/themes/frontend/assets/images/slides/thumbs/img1.jpg" data-src="/Content/themes/frontend/assets/images/slides/img1.jpg">
+                <div data-thumb="/Content/themes/@theme/assets/images/slides/thumbs/img1.jpg" data-src="/Content/themes/@theme/assets/images/slides/img1.jpg">
                     <h2>We develop.</h2>
                 </div>
-                <div data-thumb="/Content/themes/frontend/assets/images/slides/thumbs/img2.jpg" data-src="/Content/themes/frontend/assets/images/slides/img2.jpg">
+                <div data-thumb="/Content/themes/@theme/assets/images/slides/thumbs/img2.jpg" data-src="/Content/themes/@theme/assets/images/slides/img2.jpg">
                 </div>
-                <div data-thumb="/Content/themes/frontend/assets/images/slides/thumbs/img3.jpg" data-src="/Content/themes/frontend/assets/images/slides/img3.jpg">
+                <div data-thumb="/Content/themes/@theme/assets/images/slides/thumbs/img3.jpg" data-src="/Content/themes/@theme/assets/images/slides/img3.jpg">
                 </div>
             </div><!-- #camera_wrap_3 -->
         </div><!-- .fluid_container -->
@@ -30,7 +36,7 @@
         <div class="col-md-3">
             <div class="grey-box-icon">
                 <div class="icon-box-top grey-box-icon-pos">
-                    <img src="~/Content/themes/frontend/assets/images/1.png" alt="" />
+                    <img src="~/Content/themes/@theme/assets/images/1.png" alt="" />
                 </div><!--icon box top -->
                 <h4>Online Courses</h4>
                 <p>
@@ -43,7 +49,7 @@
         <div class="col-md-3">
             <div class="grey-box-icon">
                 <div class="icon-box-top grey-box-icon-pos">
-                    <img src="~/Content/themes/frontend/assets/images/2.png" alt="" />
+                    <img src="~/Content/themes/@theme/assets/images/2.png" alt="" />
                 </div><!--icon box top -->
                 <h4>Meet our Staff</h4>
                 <p>
@@ -56,7 +62,7 @@
         <div class="col-md-3">
             <div class="grey-box-icon">
                 <div class="icon-box-top grey-box-icon-pos">
-                    <img src="~/Content/themes/frontend/assets/images/3.png" alt="" />
+                    <img src="~/Content/themes/@theme/assets/images/3.png" alt="" />
                 </div><!--icon box top -->
                 <h4>Latest Updates</h4>
                 <p>
@@ -69,7 +75,7 @@
         <div class="col-md-3">
             <div class="grey-box-icon">
                 <div class="icon-box-top grey-box-icon-pos">
-                    <img src="~/Content/themes/frontend/assets/images/4.png" alt="" />
+                    <img src="~/Content/themes/@theme/assets/images/4.png" alt="" />
                 </div><!--icon box top -->
                 <h4>Placements</h4>
                 <p>
@@ -89,7 +95,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="newsBox">
                     <div class="thumbnail">
-                        <figure><img src="~/Content/themes/frontend/assets/images/news2.jpg" alt=""></figure>
+                        <figure><img src="~/Content/themes/@theme/assets/images/news2.jpg" alt=""></figure>
                         <div class="caption maxheight2">
                             <div class="box_inner">
                                 <div class="box">
@@ -104,7 +110,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="newsBox">
                     <div class="thumbnail">
-                        <figure><img src="~/Content/themes/frontend/assets/images/news3.jpg" alt=""></figure>
+                        <figure><img src="~/Content/themes/@theme/assets/images/news3.jpg" alt=""></figure>
                         <div class="caption maxheight2">
                             <div class="box_inner">
                                 <div class="box">
@@ -119,7 +125,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="newsBox">
                     <div class="thumbnail">
-                        <figure><img src="~/Content/themes/frontend/assets/images/news4.jpg" alt=""></figure>
+                        <figure><img src="~/Content/themes/@theme/assets/images/news4.jpg" alt=""></figure>
                         <div class="caption maxheight2">
                             <div class="box_inner">
                                 <div class="box">
