@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "QuizResult";
+}
+
+<div class="container">
+    <div class="row">
+        <h1> Quiz Result </h1>
+        <hr>
+       
+
+        <div class="container">
+            <div class="row">
+                <h1 style="color:darkslateblue">You have scored @ViewBag.Result/5</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                @Html.ActionLink("Finish", "Index", "Student", null, new { @class = "btn btn-primary btn-large" })
+
+            </div>
+        </div>

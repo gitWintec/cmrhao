@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -176,6 +177,7 @@
     <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuizController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -483,7 +485,8 @@
     <Content Include="Views\Student\Module2.cshtml" />
     <Content Include="Views\Student\Module3.cshtml" />
     <Content Include="Views\Student\MyAccount.cshtml" />
-    <Content Include="Views\Student\Quiz.cshtml" />
+    <Content Include="Views\Quiz\StudentQuiz.cshtml" />
+    <Content Include="Views\Quiz\QuizResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
