@@ -4,14 +4,15 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="cmrhaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="cmrhaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Announcements">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="AId" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="AId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Announcement" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="ADate" Type="datetime" Nullable="false" />
+          <Property Name="ADate" Type="datetime" />
+          <Property Name="aOrder" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Groups">
           <Key>
@@ -24,7 +25,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GroupId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
         </EntityType>
@@ -32,7 +33,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="TaskName" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="Status" Type="varchar" MaxLength="10" Nullable="false" />
@@ -104,19 +105,10 @@
             <End Role="Score" EntitySet="Score" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="cmrhaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Announcement">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Announcement1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ADate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="GroupId" />
@@ -196,7 +188,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DbConnect" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Announcements" EntityType="Self.Announcement" />
           <EntitySet Name="Groups" EntityType="Self.Group" />
           <EntitySet Name="GroupUsers" EntityType="Self.GroupUser" />
           <EntitySet Name="Scores" EntityType="Self.Score" />
@@ -213,22 +204,23 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Score" EntitySet="Scores" />
           </AssociationSet>
+          <EntitySet Name="Announcements" EntityType="cmrhaoModel.Announcement" />
         </EntityContainer>
+        <EntityType Name="Announcement">
+          <Key>
+            <PropertyRef Name="AId" />
+          </Key>
+          <Property Name="AId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Announcement1" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ADate" Type="DateTime" Precision="3" />
+          <Property Name="aOrder" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="cmrhaoModelStoreContainer" CdmEntityContainer="DbConnect">
-          <EntitySetMapping Name="Announcements">
-            <EntityTypeMapping TypeName="cmrhaoModel.Announcement">
-              <MappingFragment StoreEntitySet="Announcements">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Announcement1" ColumnName="Announcement" />
-                <ScalarProperty Name="ADate" ColumnName="ADate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Groups">
             <EntityTypeMapping TypeName="cmrhaoModel.Group">
               <MappingFragment StoreEntitySet="Groups">
@@ -266,6 +258,16 @@
                 <ScalarProperty Name="UserPass" ColumnName="UserPass" />
                 <ScalarProperty Name="UserRole" ColumnName="UserRole" />
                 <ScalarProperty Name="UserTheme" ColumnName="UserTheme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Announcements">
+            <EntityTypeMapping TypeName="cmrhaoModel.Announcement">
+              <MappingFragment StoreEntitySet="Announcements">
+                <ScalarProperty Name="aOrder" ColumnName="aOrder" />
+                <ScalarProperty Name="ADate" ColumnName="ADate" />
+                <ScalarProperty Name="Announcement1" ColumnName="Announcement" />
+                <ScalarProperty Name="AId" ColumnName="AId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

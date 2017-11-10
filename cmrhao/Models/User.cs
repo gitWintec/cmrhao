@@ -22,7 +22,7 @@ namespace cmrhao.Models
             this.GroupUsers = new HashSet<GroupUser>();
             this.Scores = new HashSet<Score>();
         }
-    
+
         public int UserId { get; set; }
         [DisplayName("User Name")]
         [Required(ErrorMessage = "This field is required.")]

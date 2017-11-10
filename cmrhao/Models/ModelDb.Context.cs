@@ -26,10 +26,10 @@ namespace cmrhao.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Announcement> Announcements { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<GroupUser> GroupUsers { get; set; }
         public virtual DbSet<Score> Scores { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Announcement> Announcements { get; set; }
     }
 }

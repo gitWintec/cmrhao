@@ -484,6 +484,9 @@
     <Content Include="Views\Student\Module3.cshtml" />
     <Content Include="Views\Student\MyAccount.cshtml" />
     <Content Include="Views\Student\Quiz.cshtml" />
+    <Content Include="Views\Admin\Groups.cshtml" />
+    <Content Include="Views\Admin\Announcements.cshtml" />
+    <Content Include="Views\Admin\AddOrEditAnsmnt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -18,6 +18,17 @@ namespace cmrhao.Controllers
             return View();
         }
 
+        public ActionResult Groups()
+        {
+            return View("Groups");
+        }
+
+        public ActionResult Announcements()
+        {
+            return View("Announcements");
+        }
+        
+
 
         public ActionResult GetData()
         {
@@ -152,12 +163,12 @@ namespace cmrhao.Controllers
         public ActionResult AddOrEditAnsmnt(int id = 0)
         {
             if (id == 0)
-                return View(new Group());
+                return View(new Announcement());
             else
             {
                 using (DbConnect db = new DbConnect())
                 {
-                    return View(db.Announcements.Where(x => x.Id == id).FirstOrDefault<Announcement>());
+                    return View(db.Announcements.Where(x => x.AId == id).FirstOrDefault<Announcement>());
                 }
             }
         }
@@ -167,7 +178,7 @@ namespace cmrhao.Controllers
         {
             using (DbConnect db = new DbConnect())
             {
-                if (ancmnt.Id == 0)
+                if (ancmnt.AId == 0)
                 {
                     db.Announcements.Add(ancmnt);
                     db.SaveChanges();
@@ -189,7 +200,7 @@ namespace cmrhao.Controllers
         {
             using (DbConnect db = new DbConnect())
             {
-                Announcement ancmnt = db.Announcements.Where(x => x.Id == id).FirstOrDefault<Announcement>();
+                Announcement ancmnt = db.Announcements.Where(x => x.AId == id).FirstOrDefault<Announcement>();
                 db.Announcements.Remove(ancmnt);
                 db.SaveChanges();
                 return Json(new { success = true, message = "Deleted Successfully" }, JsonRequestBehavior.AllowGet);
