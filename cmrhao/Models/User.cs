@@ -36,6 +36,7 @@ namespace cmrhao.Models
         [Required(ErrorMessage = "This field is required.")]
         public string UserRole { get; set; }
         public string UserTheme { get; set; }
+        public string UserGroup { get; set; }
         public string LoginErrorMessage { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

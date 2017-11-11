@@ -29,6 +29,11 @@ namespace cmrhao.Controllers
                 }
                 else
                 {
+                    var announement = db.Announcements.OrderByDescending(x => x.aOrder).FirstOrDefault();
+                    if (announement != null)
+                    {
+                        Session["announcemnt"] = announement.Announcement1.ToString();
+                    }
                     Session["userID"] = userDetails.UserId;
                     Session["userName"] = userDetails.UserFullName;
                     Session["userRole"] = userDetails.UserRole;

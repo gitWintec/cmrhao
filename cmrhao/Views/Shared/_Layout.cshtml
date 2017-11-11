@@ -37,6 +37,7 @@
                 </a> <span style="font-size:28px;padding-left:20px">StudTech Intl.</span><br /> 
                 <span style="padding-left:20px">Free Online Tutorials </span>
 </div>
+
             <div class="navbar-collapse collapse">
                 <span style="font-size:28px;padding-left:20px"></span>
                 <ul class="nav navbar-nav pull-right mainNav">
@@ -52,6 +53,7 @@
                        {
                         <li><a href="@Url.Action("Index", "Student")">Course</a></li>
                         <li><a href="@Url.Action("Logout", "Login")">Log-Out</a></li>
+                          
 
                        }
 
@@ -60,6 +62,10 @@
                 </ul>
             </div>
             <!--/.nav-collapse -->
+@if (Session["userID"] != null)
+{
+            <div style="float:right;position:fixed;margin-top:40;right:0;text-align:left;z-index:100;width:200px" class="alert alert-info"><i class="fa fa-bullhorn" ></i> <strong>Announcements:</strong><br />@Session["announcemnt"]</div>
+}
         </div>
     </div>
     <!-- /.navbar -->

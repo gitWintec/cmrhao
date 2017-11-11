@@ -41,8 +41,23 @@ namespace cmrhao.Controllers
           
             using ( db = new DbConnect())
             {
-                List<User> userList = db.Users.Where(x => x.UserRole!="Admin").ToList<User>();
-                return Json(new { data = userList }, JsonRequestBehavior.AllowGet);
+                //  List<User> userList = db.Users.Where(x => x.UserRole!="Admin").ToList<User>();
+                /*  List<Group> GroupList = db.Groups.ToList<Group>();
+                  List<GroupUser> GroupUsers = db.GroupUsers.ToList<GroupUser>();
+
+                  var output = userList.Join(userList, userList => userList.UserId, 
+                      User => User.UserId,
+                      (GroupUser, User) => new { Name = User.UserFullName, Role = User.UserRole });
+                  return Json(new { data = output }, JsonRequestBehavior.AllowGet);*/
+
+                 var output = (from u in db.Users where u.UserRole != "Admin"
+                              join gu in db.GroupUsers on u.UserId equals gu.UserId
+                              join g in db.Groups on gu.GroupId equals g.GroupId
+                              select new { UserId=u.UserId,UserFullName = u.UserFullName,
+                              UserName = u.UserName, UserRole = u.UserRole, UserTheme = u.UserTheme,
+                              GroupName= g.GroupName} ).ToList();
+                              
+                return Json(new { data = output }, JsonRequestBehavior.AllowGet);
             }
         }
 
@@ -57,6 +72,18 @@ namespace cmrhao.Controllers
                 using (DbConnect db = new DbConnect())
                 {
                     return View(db.Users.Where(x => x.UserId == id).FirstOrDefault<User>());
+
+                    /*return View ((from u in db.Users
+                     join gu in db.GroupUsers on u.UserId equals gu.UserId
+                     join g in db.Groups on gu.GroupId equals g.GroupId
+                     select new
+                     {   UserId = u.UserId,
+                         UserFullName = u.UserFullName,
+                         UserName = u.UserName,
+                         UserRole = u.UserRole,
+                         UserTheme = u.UserTheme,
+                         UserGroup = g.GroupName
+                     }).Where(x => x.UserId == id).ToList(User));*/
                 }
             }
         }

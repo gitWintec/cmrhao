@@ -16,6 +16,7 @@
                 <th>User Name</th>
                 <th>User Role</th>
                 <th>Theme</th>
+                <th>Group</th>
                 <th></th>
             </tr>
         </thead>
@@ -43,6 +44,7 @@
                             { "data": "UserName" },
                             { "data": "UserRole" },
                             { "data": "UserTheme" },
+                            { "data": "GroupName" },
                             {
                                 "data": "UserId", "render": function (data) {
                                     return "<button type='button'  class='btn btn-info btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit","Admin")/" + data + "')><i class='fa fa-pencil'></i> Edit</button> <button type='button'  class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete(" + data + ")><i class='fa fa-trash'></i> Delete</button>";
