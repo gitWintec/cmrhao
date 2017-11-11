@@ -1,0 +1,64 @@
+﻿@{
+    
+    Layout = null;
+}
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="~/Content/themes/admin/node_modules/font-awesome/css/font-awesome.min.css" />
+<link rel="stylesheet" href="~/Content/themes/admin/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
+<link rel="stylesheet" href="~/Content/themes/admin/css/style.css" />
+
+<div class="card">
+    <div class="card-block">
+       <table id="userTable1" class="" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>User Role</th>
+                    
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.12.4.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<script src="~/Scripts/notify.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+
+
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        var dataTable1;
+        
+                $(document).ready(function () {
+                    dataTable1 = $("#userTable1").DataTable({
+                        "ajax": {
+                            "url": "/Admin/GetGroupUsers/@ViewBag.GID",
+                            "type": "GET",
+                            "datatype": "json"
+                        },
+                        "columns": [
+                            { "data": "Name" },
+                            { "data": "Role" }
+                         ],
+                        "language": {
+
+                            "emptyTable": "No Users Found"
+                        },
+                        "paging": false,
+                        "ordering": false,
+                        "info": false,
+                        "searching":false
+                    });
+                });
+
+
+    </script>

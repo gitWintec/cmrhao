@@ -4,6 +4,22 @@
     Layout = null;
 }
 
+@{
+    List<SelectListItem> Userroles = new List<SelectListItem>();
+    Userroles.Add(new SelectListItem
+    {
+        Text = "Student",
+        Value = "Student"
+    });
+    Userroles.Add(new SelectListItem
+    {
+        Text = "Instructor",
+        Value = "Instructor",
+       
+    });
+
+}
+
 
 
 @using (Html.BeginForm("AddOrEdit", "Admin", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
@@ -26,7 +42,7 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.UserRole, new { @class = "control-label" })
-        @Html.EditorFor(model => model.UserRole, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.DropDownListFor(model => model.UserRole,Userroles, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(model => model.UserRole)
     </div>
 

@@ -27,9 +27,15 @@ namespace cmrhao.Controllers
         {
             return View("Announcements");
         }
-        
 
 
+
+        public ActionResult GroupUserListView(int Id=0)
+        {
+            ViewBag.GID = Id;
+            return View("GroupUserList");
+        }
+             
         public ActionResult GetData()
         {
           
@@ -148,6 +154,40 @@ namespace cmrhao.Controllers
             }
         }
 
+
+       public ActionResult GetGroupUsers(int id)
+        {
+            using (DbConnect db = new DbConnect())
+            {
+                List<GroupUser> GroupList = db.GroupUsers.Where(x => x.GroupId == id).ToList<GroupUser>();
+                List<User> UserList = db.Users.ToList<User>();
+                var output = GroupList.Join(UserList, GroupUser => GroupUser.UserId, User => User.UserId, (GroupUser, User) => new { Name = User.UserFullName, Role = User.UserRole });
+                return Json(new { data = output }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult AddOrEditGroupUsers(GroupUser grpU)
+        {
+            using (DbConnect db = new DbConnect())
+            {
+                if (grpU.Id == 0)
+                {
+                    db.GroupUsers.Add(grpU);
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    db.Entry(grpU).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+
+        }
 
         public ActionResult GetAncmntData()
         {

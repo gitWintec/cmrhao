@@ -5,17 +5,14 @@
 
 
 <div class="card">
-    <div class="card-block"><button type="button" class="btn btn-success pull-right" onclick="PopupForm('@Url.Action("AddOrEdit","Admin")')">
+    <div class="card-block"><button type="button" class="btn btn-success pull-right" onclick="PopupForm('@Url.Action("AddOrEditGroup","Admin")')">
     <i class="fa fa-plus"></i> Add New </button>
-    <h5 class="card-title mb-4">User List</h5>
+    <h5 class="card-title mb-4">Group List</h5>
 
     <table id="userTable" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>Full Name</th>
-                <th>User Name</th>
-                <th>User Role</th>
-                <th>Theme</th>
+                <th>Group Name</th>
                 <th></th>
             </tr>
         </thead>
@@ -34,22 +31,18 @@
                 $(document).ready(function () {
                     dataTable = $("#userTable").DataTable({
                         "ajax": {
-                            "url": "/Admin/GetData",
+                            "url": "/Admin/GetGroupData",
                             "type": "GET",
                             "datatype": "json"
                         },
                         "columns": [
-                            { "data": "UserFullName" },
-                            { "data": "UserName" },
-                            { "data": "UserRole" },
-                            { "data": "UserTheme" },
-                            {
-                                "data": "UserId", "render": function (data) {
-                                    return "<button type='button'  class='btn btn-info btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit","Admin")/" + data + "')><i class='fa fa-pencil'></i> Edit</button> <button type='button'  class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete(" + data + ")><i class='fa fa-trash'></i> Delete</button>";
+                            { "data": "GroupName" },
+                            { "data": "GroupId", "render": function (data) {
+                                    return "<button type='button'  class='btn btn-info btn-sm' onclick=PopupForm('@Url.Action("AddOrEditGroup", "Admin")/" + data + "')><i class='fa fa-pencil'></i> Edit</button> <button type='button'  class='btn btn-info btn-sm' onclick=PopupForm('@Url.Action("GroupUserListView", "Admin")/" + data + "')><i class='fa fa-users'></i> View Users</button> <button type='button'  class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete(" + data + ")><i class='fa fa-trash'></i> Delete</button>";
                                 },
                                 "orderable": false,
                                 "searchable": false,
-                                "width": "150px"
+                                "width": "250px"
                             }
 
                         ],
@@ -69,8 +62,8 @@
                         Popup = formDiv.dialog({
                             autoOpen: true,
                             resizable: false,
-                            title: 'Fill User Details',
-                            height: 500,
+                            title: 'Group Activity',
+                            height: 350,
                             width: 400,
                             close: function () {
                                 Popup.dialog('destroy').remove();
@@ -105,10 +98,10 @@
                 }
 
                 function Delete(id) {
-                    if (confirm('Are You Sure to Delete this User Record ?')) {
+                    if (confirm('Are You Sure to Delete this Group?')) {
                         $.ajax({
                             type: "POST",
-                            url: '@Url.Action("Delete","Admin")/' + id,
+                            url: '@Url.Action("DeleteGroup","Admin")/' + id,
                             success: function (data) {
                                 if (data.success) {
                                     dataTable.ajax.reload();

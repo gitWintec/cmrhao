@@ -24,5 +24,6 @@ namespace cmrhao.Models
         [DisplayName("Order")]
         [Required(ErrorMessage = "This field is required.")]
         public int aOrder { get; set; }
+
     }
 }

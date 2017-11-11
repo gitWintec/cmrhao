@@ -18,7 +18,7 @@
           <Key>
             <PropertyRef Name="GroupId" />
           </Key>
-          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="GroupName" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="GroupUsers">
@@ -113,7 +113,7 @@
           <Key>
             <PropertyRef Name="GroupId" />
           </Key>
-          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GroupName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="GroupUsers" Relationship="Self.FK_GroupUsers_Groups" FromRole="Groups" ToRole="GroupUsers" />
         </EntityType>
