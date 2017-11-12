@@ -46,7 +46,7 @@ namespace cmrhao.Controllers
                         case "Student":
                             return RedirectToAction("Index", "Student");
                         case "Instructor":
-                            return RedirectToAction("Index", "Instrutor");
+                            return RedirectToAction("Index", "Instructor");
                         default:
                             return RedirectToAction("Index", "Home");
 

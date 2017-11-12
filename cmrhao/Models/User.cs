@@ -21,6 +21,7 @@ namespace cmrhao.Models
         {
             this.GroupUsers = new HashSet<GroupUser>();
             this.Scores = new HashSet<Score>();
+            this.Groups = new HashSet<Group>();
         }
 
         public int UserId { get; set; }
@@ -36,12 +37,14 @@ namespace cmrhao.Models
         [Required(ErrorMessage = "This field is required.")]
         public string UserRole { get; set; }
         public string UserTheme { get; set; }
-        public string UserGroup { get; set; }
+        [DisplayName("Group")]
+        public int GroupId { get; set; }
         public string LoginErrorMessage { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupUser> GroupUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Score> Scores { get; set; }
+        public virtual ICollection<Group> Groups { get; set; }
     }
 }

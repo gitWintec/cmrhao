@@ -66,11 +66,21 @@ namespace cmrhao.Controllers
         public ActionResult AddOrEdit(int id = 0)
         {
             if (id == 0)
-                return View(new User());
+            {
+                using (DbConnect db = new DbConnect())
+                {
+                    ViewBag.GroupList = db.Groups.ToList();
+                    ViewBag.userGroup=null;
+                    return View(new User());
+                }
+            }
             else
             {
                 using (DbConnect db = new DbConnect())
                 {
+
+                    ViewBag.GroupList = db.Groups.ToList();
+                    ViewBag.userGroup = db.GroupUsers.Where(x => x.UserId == id).FirstOrDefault<GroupUser>();
                     return View(db.Users.Where(x => x.UserId == id).FirstOrDefault<User>());
 
                     /*return View ((from u in db.Users
@@ -97,12 +107,27 @@ namespace cmrhao.Controllers
                 {
                     db.Users.Add(usr);
                     db.SaveChanges();
+                    db.GroupUsers.Add(new GroupUser {
+                        GroupId = usr.GroupId,
+                        UserId = usr.UserId
+                    });
+
+                    db.SaveChanges();
                     return Json(new { success = true, message = "Saved Successfully" }, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
                     db.Entry(usr).State = EntityState.Modified;
                     db.SaveChanges();
+
+                   
+                    GroupUser gpusr = new GroupUser();
+                    gpusr = db.GroupUsers.SingleOrDefault(GroupUser => GroupUser.UserId==usr.UserId);
+                    gpusr.GroupId=usr.GroupId;
+                   
+                    db.Entry(gpusr).State = EntityState.Modified;
+                    db.SaveChanges();
+
                     return Json(new { success = true, message = "Updated Successfully" }, JsonRequestBehavior.AllowGet);
                 }
             }
