@@ -140,6 +140,9 @@ namespace cmrhao.Controllers
         {
             using (DbConnect db = new DbConnect())
             {
+                GroupUser gusr = db.GroupUsers.Where(x => x.UserId == id).FirstOrDefault<GroupUser>();
+                db.GroupUsers.Remove(gusr);
+                db.SaveChanges();
                 User usr = db.Users.Where(x => x.UserId == id).FirstOrDefault<User>();
                 db.Users.Remove(usr);
                 db.SaveChanges();

@@ -6784,3 +6784,8 @@ table.center-aligned-table tr {
 
 .badge {
   padding: 0.30em 0.45em; }
+
+
+.redText {
+    color:crimson;
+}

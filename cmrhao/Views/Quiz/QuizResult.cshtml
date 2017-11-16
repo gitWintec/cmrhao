@@ -7,18 +7,26 @@
     <div class="row">
         <h1> Quiz Result </h1>
         <hr>
-       
+
 
         <div class="container">
             <div class="row">
-                <h1 style="color:darkslateblue">You have scored @ViewBag.Result/5</h1>
-                <hr>
+                <h1 style="color:red">You have scored @ViewBag.Result/5</h1>
             </div>
         </div>
 
+        <p><font color="Green">The correct answer in Question 1 is @ViewBag.Q1 </font></p>
+        <p><font color="Green">The correct answer in Question 2 is @ViewBag.Q2 </font></p>
+        <p><font color="Green">The correct answer in Question 3 is @ViewBag.Q3 </font></p>
+        <p><font color="Green">The correct answer in Question 4 is @ViewBag.Q4 </font></p>
+        <p><font color="Green">The correct answer in Question 5 is @ViewBag.Q5 </font></p>
+        <hr>
         <div class="container">
             <div class="row">
                 @Html.ActionLink("Finish", "Index", "Student", null, new { @class = "btn btn-primary btn-large" })
 
+
             </div>
         </div>
+    </div>
+</div>

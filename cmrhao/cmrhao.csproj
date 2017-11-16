@@ -176,6 +176,7 @@
     <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\QuizController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -489,6 +490,8 @@
     <Content Include="Views\Admin\AddOrEditAnsmnt.cshtml" />
     <Content Include="Views\Admin\AddOrEditGroup.cshtml" />
     <Content Include="Views\Admin\GroupUserList.cshtml" />
+    <Content Include="Views\Quiz\QuizResult.cshtml" />
+    <Content Include="Views\Quiz\StudentQuiz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

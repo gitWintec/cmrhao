@@ -42,16 +42,14 @@
                 <span style="font-size:28px;padding-left:20px"></span>
                 <ul class="nav navbar-nav pull-right mainNav">
                     <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
-                    <li><a href="price.html">Price</a></li>
-                    <li><a href="videos.html">Videos</a></li>
                    
-                    
                        @if (Session["userID"] == null) { 
                        <li><a href="@Url.Action("Index", "Login")">Login</a></li>
                        }
                        else
                        {
                         <li><a href="@Url.Action("Index", "Student")">Course</a></li>
+                        <li><a href="@Url.Action("MyAccount", "Student")">My Account</a></li>
                         <li><a href="@Url.Action("Logout", "Login")">Log-Out</a></li>
                           
 

@@ -13,94 +13,91 @@
                 <hr>
             </div>
         </div>
-        
-        
 
-        
-            @using (Html.BeginForm("QuizResult", "Quiz"))
+
+
+
+        @using (Html.BeginForm("QuizResult", "Quiz"))
             {
-      <br>
-       <p>1. _______ be used for many purposes: display maps, scan for viruses, verify your bank id, etc. </p>
-        <p>
-            @Html.RadioButton("rating1", "false", false)
-            @Html.Label("Audio")
-        </p>
-        <p>
-            @Html.RadioButton("rating1", "false", false)
-            @Html.Label("Media")
-        </p>
-        <p>
-            @Html.RadioButton("rating1", "true", false)
-            @Html.Label("Plug-ins")
-        </p>
+            <br>
+            <p>1. _______ be used for many purposes: display maps, scan for viruses, verify your bank id, etc. </p>
+            <p>
+                @Html.RadioButton("Question1", "Audio")
+                @Html.Label("Audio")
+            </p>
+            <p>
+                @Html.RadioButton("Question1", "Media")
+                @Html.Label("Media")
+            </p>
+            <p>
+                @Html.RadioButton("Question1", "Plug-ins")
+                @Html.Label("Plug-ins")
+            </p>
 
 
-        <p>2. The easiest way to play videos in HTML, is to use ______ </p>
-        <p>
-            @Html.RadioButton("rating2", "false", false)
-            @Html.Label("Google")
-        </p>
-        <p>
-            @Html.RadioButton("rating2", "true", false)
-            @Html.Label("Youtube")
-        </p>
-        <p>
-            @Html.RadioButton("rating2", "false", false)
-            @Html.Label("Facebook")
-        </p>
+            <p>2. The easiest way to play videos in HTML, is to use ______ </p>
+            <p>
+                @Html.RadioButton("Question2", "Google")
+                @Html.Label("Google")
+            </p>
+            <p>
+                @Html.RadioButton("Question2", "Youtube")
+                @Html.Label("Youtube")
+            </p>
+            <p>
+                @Html.RadioButton("Question2", "Facebook")
+                @Html.Label("Facebook")
+            </p>
 
-        <p>3. What element allows you to play a Youtube video?  </p>
-        <p>
-            @Html.RadioButton("rating3", "true", false)
-            @Html.Label("<iframe>")
-        </p>
-        <p>
-            @Html.RadioButton("rating3", "false", false)
-            @Html.Label("<source>")
-        </p>
-        <p>
-            @Html.RadioButton("rating3", "false", false)
-            @Html.Label("<audio>")
-        </p>
+            <p>3. What element allows you to play a Youtube video?  </p>
+            <p>
+                @Html.RadioButton("Question3", "<iframe>")
+                @Html.Label("<iframe>")
+            </p>
+            <p>
+                @Html.RadioButton("Question3", "<source>")
+                @Html.Label("<source>")
+            </p>
+            <p>
+                @Html.RadioButton("Question3", "<audio>")
+                @Html.Label("<audio>")
+            </p>
 
-        <p>4. What are the examples of multimedia?</p>
-        <p>
-            @Html.CheckBox("Cbx1", false)
-            @Html.Label("Videos")
-        </p>
+            <p>4. What are the examples of multimedia?</p>
 
-        <p>
-            @Html.CheckBox("Cbx2", false)
-            @Html.Label("Audio")
-        </p>
-
-        <p>
-            @Html.CheckBox("Cbx3", false)
-            @Html.Label("Camera")
-        </p>
-
-        <p>5. What are the multimedia formats?</p>
-        <p>
-            @Html.CheckBox("Cbx4", false)
-            @Html.Label("avi")
-        </p>
-
-        <p>
-            @Html.CheckBox("Cbx5", false)
-            @Html.Label("docx")
-        </p>
-
-        <p>
-            @Html.CheckBox("Cbx6", false)
-            @Html.Label("mp3")
-        </p>
+            <p>
+                @Html.RadioButton("Question4", "Videos")
+                @Html.Label("Videos")
+            </p>
+            <p>
+                @Html.RadioButton("Question4", "Document")
+                @Html.Label("Document")
+            </p>
+            <p>
+                @Html.RadioButton("Question4", "Camera")
+                @Html.Label("Camera")
+            </p>
 
 
+            <p>5. What are the multimedia formats?</p>
 
-        <br />
+            <p>
+                @Html.RadioButton("Question5", "avi")
+                @Html.Label("avi")
+            </p>
+            <p>
+                @Html.RadioButton("Question5", "docx")
+                @Html.Label("docx")
+            </p>
+            <p>
+                @Html.RadioButton("Question5", "xl")
+                @Html.Label("xl")
+            </p>
 
-        <input type="submit" value="Submit" />
+            <br />
 
-            }
+            <input type="submit" value="Submit" />
+
+        }
     </div>
 </div>

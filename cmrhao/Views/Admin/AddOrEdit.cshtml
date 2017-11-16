@@ -51,17 +51,17 @@
     <div class="form-group">
         @Html.LabelFor(model => model.UserFullName, new { @class = "control-label" })
         @Html.EditorFor(model => model.UserFullName, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.UserFullName)
+        @Html.ValidationMessageFor(model => model.UserFullName, "", new { @class = "redText" })
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.UserName, new { @class = "control-label" })
         @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.UserName)
+        @Html.ValidationMessageFor(model => model.UserName,"",new { @class = "redText" })
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.UserPass, new { @class = "control-label" })
         @Html.EditorFor(model => model.UserPass, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.UserPass)
+        @Html.ValidationMessageFor(model => model.UserPass,"",new { @class = "redText" })
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.UserRole, new { @class = "control-label" })

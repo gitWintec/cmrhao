@@ -1,45 +1,60 @@
-﻿
+﻿@model cmrhao.Models.User
 @{
     ViewBag.Title = "MyAccount";
 }
 
+@{
+    List<SelectListItem> Themes = new List<SelectListItem>();
+    Themes.Add(new SelectListItem
+    {
+        Text = "theme_default",
+        Value = "theme_default"
+    });
+    Themes.Add(new SelectListItem
+    {
+        Text = "theme_dark",
+        Value = "theme_dark",
+
+    });
+}
+
+
 <div class="container">
     <div class="row">
-        <form method="post">
-            <fieldset>
-                 <h1>My Account</h1>
-                      <hr>
-                <div>
-                    <label for="CompanyName">Name:</label><br>
-                    <input type="text" name="Name" value="" />
-                </div>
-                <div>
-                    <label for="ContactName">Email Address:</label><br>
-                    <input type="text" name="Email Address" value="" />
-                </div>
-                <br>
-                <div>
+        <div class="col-md-5">
+            
+            @Html.HiddenFor(model => model.UserId)
+            <form method="post">
+                @Html.HiddenFor(model => model.UserId)
+                <fieldset>
+                    <h1>My Account</h1>
+                    <hr>
+                    <div>
+                        <label for="Fullname">Fullname:</label><br>
+                        @Html.EditorFor(model => model.UserFullName, new { htmlAttributes = new { @class = "form-control" } })
 
-                    <fieldset>Theme:<select id="ThemeType" name="ThemeType"><br>
+                    </div>
 
-                            <option value=""> </option>
-                            
-                            <option value="">Default</option>
+                    <br>
+                    <div>
 
-                            <option value="0">Dark</option>
-                        
-                        </select>
+                        <fieldset>
+                           <label for="Fullname">Theme</label><br>
+
+                            @Html.DropDownListFor(model => model.UserTheme, Themes, new { @class = "form-control" })
+
                         </fieldset>
-                </div>
+                    </div>
 
-                <hr>
-                <div>
-                    <label>&nbsp;</label>
-                    <input type="submit" value="Submit" class="submit" />
-                       
-                </div>
-            </fieldset>
-        </form>
+                    <hr>
+                    <div>
+                        <label>&nbsp;</label>
+                        <input type="submit" value="Submit" class="submit" /> <span style="padding-left:10px"  class="text-info">@ViewBag.SuccessMessage</span>
+
+                    </div>
+                </fieldset>
+            </form>
+        </div>
     </div>
 </div>
 
